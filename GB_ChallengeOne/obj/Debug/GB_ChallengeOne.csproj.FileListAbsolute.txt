@@ -1,0 +1,7 @@
+C:\Users\vansc\Desktop\Eleven Fifty\Projects\Gold Badge Project\GB_ChallengeOne\GB_ChallengeOne\obj\Debug\GB_ChallengeOne.csprojAssemblyReference.cache
+C:\Users\vansc\Desktop\Eleven Fifty\Projects\Gold Badge Project\GB_ChallengeOne\GB_ChallengeOne\obj\Debug\GB_ChallengeOne.csproj.CoreCompileInputs.cache
+C:\Users\vansc\Desktop\Eleven Fifty\Projects\Gold Badge Project\GB_ChallengeOne\GB_ChallengeOne\bin\Debug\GB_ChallengeOne.exe.config
+C:\Users\vansc\Desktop\Eleven Fifty\Projects\Gold Badge Project\GB_ChallengeOne\GB_ChallengeOne\bin\Debug\GB_ChallengeOne.exe
+C:\Users\vansc\Desktop\Eleven Fifty\Projects\Gold Badge Project\GB_ChallengeOne\GB_ChallengeOne\bin\Debug\GB_ChallengeOne.pdb
+C:\Users\vansc\Desktop\Eleven Fifty\Projects\Gold Badge Project\GB_ChallengeOne\GB_ChallengeOne\obj\Debug\GB_ChallengeOne.exe
+C:\Users\vansc\Desktop\Eleven Fifty\Projects\Gold Badge Project\GB_ChallengeOne\GB_ChallengeOne\obj\Debug\GB_ChallengeOne.pdb
