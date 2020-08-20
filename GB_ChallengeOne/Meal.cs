@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GB_ChallengeOne
 {
-    public class Meals
+    public class Meal
     {
-        public Meals(int mealNumber, string mealName, string mealDescription, double mealPrice)
+        public Meal(int mealNumber, string mealName, string mealDescription, double mealPrice)
         {
             MealNumber = mealNumber;
             MealName = mealName;

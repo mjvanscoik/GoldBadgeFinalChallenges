@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MealsRepository.cs" />
-    <Compile Include="Meals.cs" />
+    <Compile Include="Meal.cs" />
     <Compile Include="ProgramUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

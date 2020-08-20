@@ -9,28 +9,65 @@ namespace Tests_ChallengeOne
     [TestClass]
     public class UnitTest1
     {
+        // Update Existing Menu Items -- explicitly not needed in challenge.
+        
+        
+        private MealsRepository _repo;
+        private Meal _meal;
+        private List<Meal> _mealList;
+
         [TestMethod]
-        public void List_ShouldFillListWithinEachMeal()
+        public void REPO_MenuItemShouldBeAdded()
         {
             ///Arrange -- Setting up the playing field
-            MealsRepository repo = new MealsRepository();
-            Meals burger = new Meals(0, "String", "string", 3.5);
-            List<Meals> menu = repo.AddMealToRepo();
-            public bool burgerHasFries = burger.MealIngrediants.Contains(fries);
+            _meal = new Meal(3, "Taco" , "Real good. Makes ya full", 4.20);
+            _repo = new MealsRepository();
 
 
-            burger.MealIngrediants.Add("Fries");
-            repo.AddContentToDirectory(orange); //-will be "content" or "banana" in the class sheet
 
-            repo.GetDirectory();
             //Act -- Get or run the code we want to test
-            List<StreamingContent> directory = repo.GetDirectory(); //Does orange exist within the directory?
-
-            bool directoryHasOrange = directory.Contains(orange); //directory, do you have orange?
+            _repo.AddMenuItem(_meal);
 
 
             //Assert -- using the Assert class to verify the expected outcome. 
-            Assert.IsTrue(directoryHasOrange);
+            Assert.IsNotNull(_meal.MealDescription);
+        }
+        [TestMethod]
+        public void GetMealsShouldReturnMeals()
+        {
+            _repo = new MealsRepository();
+            _mealList = new List<Meal>();
+            _meal = new Meal(3, "Taco", "Real good. Makes ya full", 4.20);
+            _mealList.Add(_meal);
+            var chicken = _repo.GetMeals();
+            Assert.IsNotNull(chicken);
+        }
+        [TestMethod]
+        public void AddMethodShouldAddMeal() //Also tests get item by ID
+        {
+            MealsRepository repo = new MealsRepository();
+            Meal meal = new Meal(3, "burger", "good", 2.50);
+            repo.AddMenuItem(meal);
+
+            repo.GetItemByID(meal.MealNumber); 
+
+            List<Meal> mealList = repo.GetMeals(); //GetMeals returns a list. We are returning the list, and then assigning it a name.
+
+            bool mealListHasMeal = mealList.Contains(meal);// Is it true that meal list now contains meal?
+
+            Assert.IsTrue(mealListHasMeal);
+        }
+        [TestMethod]
+        public void RemoveMenuItemRemovesMenuItem()
+        {
+            MealsRepository repo = new MealsRepository();
+            Meal meal = new Meal(3, "burger", "good", 2.50);
+            repo.AddMenuItem(meal);
+
+            var num = meal.MealNumber;
+            bool removesResult = repo.RemoveMenuItem(num);
+
+            Assert.IsTrue(removesResult);
         }
     }
 }

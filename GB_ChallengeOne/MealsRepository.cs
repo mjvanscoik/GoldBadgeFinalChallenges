@@ -8,31 +8,73 @@ namespace GB_ChallengeOne
 {
     public class MealsRepository
     {
-        public readonly List<Meals> _mealRepo = new List<Meals>(); //Creates the meal list and all properties held by the class
+        public readonly List<Meal> _mealRepo = new List<Meal>(); //Creates the meal list and all properties held by the class
 
         //CREATE READ UPDATE DELETE - CRUD
-        public void AddMealToRepo(Meals meal) //CREATE
+        public void AddMenuItem(Meal meal) //Create
         {
             _mealRepo.Add(meal);
         }
+        
 
-        public List<Meals> GetMeals() //READ
+        public List<Meal> GetMeals() //READ
         { 
             return _mealRepo;
         }
 
-        public List<Meals> AddMealToRepo()
+        //Update
+        public bool UpdateExistingMenuItem(int id, Meal newMeal)
         {
-            throw new NotImplementedException();
+            Meal oldMeal = GetItemByID(id); //Find by ID
+            if (oldMeal != null)
+            {
+                oldMeal.MealName = newMeal.MealName;
+                oldMeal.MealDescription = newMeal.MealDescription;
+                oldMeal.MealIngrediants = newMeal.MealIngrediants;
+                oldMeal.MealNumber = newMeal.MealNumber;
+                oldMeal.MealPrice = newMeal.MealPrice;
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool RemoveMenuItem(int id) //DELETE
+        {
+            Meal meal = GetItemByID(id);
+
+            if (meal == null)
+            {
+                return false;
+            }
+
+            int initialCount = _mealRepo.Count;
+            _mealRepo.Remove(meal);
+
+            if(initialCount > _mealRepo.Count)
+            {
+                return true;
+            }
+            else
+            { 
+                return false; 
+            }
+        }
+        
+        //Helper Method
+        public Meal GetItemByID(int id)
+        {
+            foreach (Meal meal in _mealRepo)
+            {
+                if (meal.MealNumber == id)
+                {
+                    return meal;
+                }
+            }
+                return null;
         }
 
-        public void AddMenuItem(Meals meal) //UPDATE
-        {
-            _mealRepo.Add(meal);
-        }
-        public void RemoveMenuItem(Meals meal) //DELETE
-        {
-            _mealRepo.Remove(meal);
-        }
     }
 }
