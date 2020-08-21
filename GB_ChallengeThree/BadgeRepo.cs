@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GB_ChallengeThree
 {
-    class BadgeRepo
+    public class BadgeRepo
     {
         
       

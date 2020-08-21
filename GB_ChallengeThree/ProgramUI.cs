@@ -11,6 +11,7 @@ namespace GB_ChallengeThree
 {
     class ProgramUI
     {
+        private bool _isRunning = true;
         private readonly BadgeRepo _badgeRepo = new BadgeRepo();
         public void Start()
         {
@@ -63,7 +64,7 @@ namespace GB_ChallengeThree
                     GetAllBadges();
                     break;
                 case '4':
-                    //
+                    _isRunning = false;
                     return;
                 default:
                     Console.WriteLine("There seems to have been an error. Press any key to return to main menu.");
@@ -71,8 +72,12 @@ namespace GB_ChallengeThree
                     MainMenu();
                     break;
 
+                    
             }
-
+            while (_isRunning)
+            {
+                Console.Clear();
+            }
 
         }
 
@@ -141,7 +146,9 @@ namespace GB_ChallengeThree
         public void CallBadgeToUpdate()
         {
             Console.Clear();
-            Console.WriteLine("What is the badge number you'd like to update?");
+            GetAllBadgesUpdate();
+            Console.WriteLine(" \n" +
+                "What is the badge number you'd like to update?");
             int userInputNum = int.Parse(Console.ReadLine());
             List<string> calledString = _badgeRepo.GetDoorListByID(userInputNum);
             KeyValuePair<int, List<string>> badgeKeyAndValue = new KeyValuePair<int, List<string>>(userInputNum, calledString);
@@ -199,6 +206,7 @@ namespace GB_ChallengeThree
                 Console.ReadKey();
                 MainMenu();
             }
+        
             public void DisplayBadge(KeyValuePair<int, List<string>> badge)
             {
                 string display;
@@ -208,7 +216,18 @@ namespace GB_ChallengeThree
                 Console.WriteLine($"{display}                   {displayTwo}" +
                     $"");
             }
-
+        public void GetAllBadgesUpdate()
+        {
+            Console.Clear();
+            Console.WriteLine("Badge Number             Door Access\n" +
+               "");
+            var dictionaryToDisplay = _badgeRepo.FetchDictionary();////
+            foreach (KeyValuePair<int, List<string>> badge in dictionaryToDisplay)
+            {
+                DisplayBadge(badge);
+            }
+           
+        }
         
     } 
 }

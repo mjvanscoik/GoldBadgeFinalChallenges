@@ -13,7 +13,7 @@ namespace GB_ChallengeThree
         {
             ProgramUI ui = new ProgramUI();
             ui.Start();
-            Console.ReadLine();
+            
         }
     }
 }
